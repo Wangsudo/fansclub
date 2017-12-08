@@ -1,1 +1,24 @@
-<h1>注册</h1>
+<!-- 注册的表单 -->
+<form name="register_form">
+    <div class="form-group">
+        <label for="regUsername">用户名</label>
+        <input name="regName" type="text" class="form-control" id="regUsername" placeholder="用户名"
+               ng-model="register.name" ng-minlength="2" ng-maxlength="20" required>
+    </div>
+    <div class="form-group">
+        <label for="password">密码</label>
+        <input name="regPassword" type="password" class="form-control" id="password" placeholder="输入密码">
+    </div>
+    <div class="form-group">
+        <label for="mPassword">确认密码</label>
+        <input name="confirmPassword" type="password" class="form-control" id="mPassword" placeholder="确认密码">
+    </div>
+    <div class="form-group">
+        <label for="email">邮箱</label>
+        <input type="email" class="form-control" id="email" placeholder="输入邮箱账号">
+    </div>
+    <div align="center">
+        <button type="submit" class="btn btn-default" data-toggle="modal" data-target="#loginModal">注册</button>
+        <button type="button" class="btn btn-default" ui-sref="layout.home">取消</button>
+    </div>
+</form>
