@@ -65,6 +65,31 @@ fansClubApp.config(['$stateProvider','$urlRouterProvider',function ($stateProvid
                 }
             }
         })
+        // 登陆和注册
+        .state('login_reg',{
+            url: '/',
+            views: {
+                '': {
+                    templateUrl: 'tpls/front/login-reg.html'
+                }
+            }
+        })
+        .state('login_reg.login',{
+            url: 'login',
+            views: {
+                'login_reg_content@login_reg': {
+                    templateUrl: 'tpls/front/login.html'
+                }
+            }
+        })
+        .state('login_reg.register',{
+            url: 'register',
+            views: {
+                'login_reg_content@login_reg': {
+                    templateUrl: 'tpls/front/register.html'
+                }
+            }
+        })
         //一级管理员
         .state('firstLevelHome',{
             url: '/first',
