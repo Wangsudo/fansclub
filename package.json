@@ -1,0 +1,23 @@
+{
+  "name": "fansclub",
+  "version": "1.0.0",
+  "description": "球迷社资讯管理一体化",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wangsudo/fansclub.git"
+  },
+  "author": "walker_wang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Wangsudo/fansclub/issues"
+  },
+  "homepage": "https://github.com/Wangsudo/fansclub#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-concat": "^1.0.1",
+  }
+}

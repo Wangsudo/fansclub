@@ -1,0 +1,100 @@
+body{
+    margin-top: 50px;
+}
+.article{
+    height: 1000px;
+    background-color: #DCEAF4;
+}
+
+.no-padding{
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.footer{
+    height: 40px;
+    background-color: #BBD8E9;
+}
+
+.reg{
+    margin-top: 10px;
+}
+.login{
+    margin-left: 100px;
+}
+.menu{
+    background-color: #BBD8E9;
+    position: absolute;
+    left: -62%;
+    width: 260%;
+}
+.dropup{
+    padding-top: 8px;
+}
+.menu p{
+    padding-left: 12px;
+}
+
+.foot-blod{
+    font-size: 20px;
+}
+.w-full{
+    width: 100%;
+}
+ul{
+    list-style: none;
+    padding: 15px;
+}
+.m-t-xs{
+    margin-top: 5px;
+}
+.m-t-sm{
+    margin-top: 10px;
+}
+.m-l-xs{
+    margin-left: 5px;
+}
+.m-l-sm{
+    margin-left: 15px;
+}
+.m-r-xs{
+    margin-right: 5px;
+}
+.m-b-xs{
+    margin-bottom: 5px;
+}
+.pos-stc{
+    position: static;
+}
+
+
+.carousel{
+    background-color: #000;
+
+}
+
+.border-black{
+    border: solid 1px #000000;
+}
+
+img{
+    width: 100%;
+}
+
+.p-t-sm{
+    padding-top: 15px;
+}
+
+#main-con{
+    width: 100%;
+    background: url("../imgs/bg1.jpg") no-repeat;
+}
+
+.sm-t-img{
+    margin-top: 16px;
+    background: url("../imgs/bg2.png") no-repeat;
+
+}
+.sm-t-text{
+    padding-left: 12px;
+}
