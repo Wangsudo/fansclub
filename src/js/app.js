@@ -1,7 +1,33 @@
+'use strict';
+
 var fansClubApp = angular.module('fansClubApp',[
     'ui.router'
 ]);
 
+
+//*************定义全局变量*************
+
+//----------------用户登陆状态---------------
+fansClubApp.content('AUTH_EVENTS',{
+    loginSuccess: 'auth-login-success',
+    loginFailed: 'auth-login-failed',
+    logoutSuccess: 'auth-logout-success',
+    sessionTimeout: 'auth-session-timeout',
+    notAuthenticated: 'auth-not-authenticated',
+    notAuthorized: 'auth-not-authorized'
+});
+
+//----------------用户角色---------------
+fansClubApp.content('USER_ROLES',{
+    all: '',
+    oneLevelAdmin: 'one-level-admin',//一级管理员
+    twoLevelAdmin: 'two-level-admin',//二级管理员
+    guest: 'guest',   //游客
+    regularMember: 'regular-member',  //普通会员
+    seniorMember: 'senior-member' //高级会员
+});
+
+//*************设置路由***************
 fansClubApp.config(['$stateProvider','$urlRouterProvider',function ($stateProvider,$urlRouterProvider) {
     $urlRouterProvider.otherwise('home');
     $stateProvider
