@@ -1,11 +1,14 @@
-fansClubApp.controller('loginController',['$scope','$rootScope','$http','$state',
-    function ($scope,$rootScope,$http,$state) {
+'use strict';
+
+fansClubApp.controller('loginController',['$scope','$rootScope','$http','$state','loginService',
+    function ($scope,$rootScope,$http,$state,loginService) {
+        $scope.user = {
+            username : '',
+            password : ''
+        };
         $scope.login = function (user) {
             console.log(user.username);
-            $http({
-                method: 'post',
-                url: '../data/user.json'
-            }).then(
+            loginService.login(user).then(
                 function (response) {
                     console.log(response);
                     console.log(user);
