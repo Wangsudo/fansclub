@@ -1,6 +1,7 @@
 fansClubApp.controller('loginController',['$scope','$rootScope','$http','$state',
     function ($scope,$rootScope,$http,$state) {
         $scope.login = function (user) {
+            console.log(user.username);
             $http({
                 method: 'post',
                 url: '../data/user.json'
@@ -10,10 +11,13 @@ fansClubApp.controller('loginController',['$scope','$rootScope','$http','$state'
                     console.log(user);
                     console.log(angular.equals(response.data,user));
                     if(angular.equals(response.data,user)){
-                        $rootScope.user = response.data;
+                        $rootScope.user = {
+                            username : response.data.username
+                        };
                         $state.go('layout.home');
                         console.log($rootScope.user);
-                        console.log($rootScope.user);
+                    }else{
+                        $scope.mess = $state.current.data.loginError;
                     }
                 },function (response) {
                     console.log(response);

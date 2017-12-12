@@ -1,6 +1,9 @@
 <!-- 登陆的表单 -->
 
 <form name="loginForm" ng-submit="login(user)">
+    <div align="center" class="col-md-12">
+        <span class="label label-danger" style="margin-bottom: 6px;">{{mess}}</span>
+    </div>
     <div class="form-group">
         <label for="username">用户名</label>
         <input type="text" class="form-control" id="username" name="username" ng-model="user.username" placeholder="请输入用户名／手机号／邮箱">
@@ -17,12 +20,5 @@
     <div align="center">
         <button type="submit" class="btn btn-default">登陆</button>
     </div>
-    <div align="center" class="col-md-12">
-        <span class="label label-danger">{{ctrLogin.mess}}</span>
-    </div>
+
 </form>
-<div>
-    {{ctrLogin.test}}
-    {{ctrLogin.test1}}
-    {{ctrLogin.myTxt}}
-</div>
