@@ -1,3 +1,5 @@
+'use strict';
+
 fansClubApp.controller('headerController',['$scope','$rootScope','$state',function ($scope,$rootScope,$state) {
     this.message = '球迷窝社区';
     $scope.logOff = function () {
