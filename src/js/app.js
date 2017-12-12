@@ -13,7 +13,9 @@ fansClubApp.config(['$stateProvider','$urlRouterProvider',function ($stateProvid
                     templateUrl: 'tpls/layout.html'
                 },
                 'top@layout': {
-                    templateUrl: 'tpls/front/front_header.html'
+                    templateUrl: 'tpls/front/front_header.html',
+                    controller: 'headerController',
+                    controllerAs: 'ctrHeader'
                 }
             }
         })
@@ -21,7 +23,9 @@ fansClubApp.config(['$stateProvider','$urlRouterProvider',function ($stateProvid
             url: 'home',
             views: {
                 'body@layout': {
-                    templateUrl: 'tpls/front/front_home.html'
+                    templateUrl: 'tpls/front/front_home.html',
+                    controller: 'homeController',
+                    controllerAs: 'ctrHome'
                 }
             }
         })
@@ -65,9 +69,14 @@ fansClubApp.config(['$stateProvider','$urlRouterProvider',function ($stateProvid
                 }
             }
         })
-        // 登陆和注册
+
+        //------------------------------------登陆和注册--------------------------------------
         .state('login_reg',{
             url: '/',
+            data: {
+                user : "wang",
+                password: "123321"
+            },
             views: {
                 '': {
                     templateUrl: 'tpls/front/login-reg.html'
@@ -76,9 +85,14 @@ fansClubApp.config(['$stateProvider','$urlRouterProvider',function ($stateProvid
         })
         .state('login_reg.login',{
             url: 'login',
+            data: {
+                loginError: '用户名或者密码错误'
+            },
             views: {
                 'login_reg_content@login_reg': {
-                    templateUrl: 'tpls/front/login.html'
+                    templateUrl: 'tpls/front/login.html',
+                    controller: 'loginController',
+                    controllerAs: 'ctrLogin'
                 }
             }
         })
@@ -86,11 +100,13 @@ fansClubApp.config(['$stateProvider','$urlRouterProvider',function ($stateProvid
             url: 'register',
             views: {
                 'login_reg_content@login_reg': {
-                    templateUrl: 'tpls/front/register.html'
+                    templateUrl: 'tpls/front/register.html',
+                    controller: 'registerController',
+                    controllerAs: 'ctrRegister'
                 }
             }
         })
-        //一级管理员
+        //------------------------------------一级管理员-------------------------------------
         .state('firstLevelHome',{
             url: '/first',
             abstract: true,
@@ -127,7 +143,7 @@ fansClubApp.config(['$stateProvider','$urlRouterProvider',function ($stateProvid
                 }
             }
         })
-        //二级管理员
+        //------------------------------------二级管理员--------------------------------------
         .state('twoLevelHome',{
             url: '/two',
             abstract: true,
