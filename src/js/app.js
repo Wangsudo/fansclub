@@ -3,12 +3,10 @@
 var fansClubApp = angular.module('fansClubApp',[
     'ui.router'
 ]);
-
-
 //*************定义全局变量*************
 
 //----------------用户登陆状态---------------
-fansClubApp.content('AUTH_EVENTS',{
+fansClubApp.constant('AUTH_EVENTS',{
     loginSuccess: 'auth-login-success',
     loginFailed: 'auth-login-failed',
     logoutSuccess: 'auth-logout-success',
@@ -16,9 +14,8 @@ fansClubApp.content('AUTH_EVENTS',{
     notAuthenticated: 'auth-not-authenticated',
     notAuthorized: 'auth-not-authorized'
 });
-
 //----------------用户角色---------------
-fansClubApp.content('USER_ROLES',{
+fansClubApp.constant('USER_ROLES',{
     all: '',
     oneLevelAdmin: 'one-level-admin',//一级管理员
     twoLevelAdmin: 'two-level-admin',//二级管理员
@@ -26,13 +23,19 @@ fansClubApp.content('USER_ROLES',{
     regularMember: 'regular-member',  //普通会员
     seniorMember: 'senior-member' //高级会员
 });
-
 //*************设置路由***************
-fansClubApp.config(['$stateProvider','$urlRouterProvider',function ($stateProvider,$urlRouterProvider) {
+fansClubApp.config([
+    '$stateProvider',
+    '$urlRouterProvider',
+    'USER_ROLES',
+    function ($stateProvider,$urlRouterProvider,USER_ROLES) {
     $urlRouterProvider.otherwise('home');
     $stateProvider
         .state('layout',{
             url: '/',
+            data: {
+                authorizedRoles: [USER_ROLES.oneLevelAdmin]
+            },
             abstract: true,
             views: {
                 '': {
@@ -215,3 +218,5 @@ fansClubApp.config(['$stateProvider','$urlRouterProvider',function ($stateProvid
             }
         })
 }]);
+
+

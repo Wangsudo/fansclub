@@ -1,33 +1,40 @@
 'use strict';
 
-fansClubApp.controller('loginController',['$scope','$rootScope','$http','$state','authService',
-    function ($scope,$rootScope,$http,$state,authService) {
+fansClubApp.controller('loginController',[
+    '$scope',
+    '$rootScope',
+    '$state',
+    'AUTH_EVENTS',
+    'authService',
+    function ($scope,$rootScope,$state,AUTH_EVENTS,authService) {
         $scope.user = {
             username : '',
             password : ''
         };
         $scope.login = function (user) {
-            console.log(user.username);
+            console.log(user.role);
             authService.login(user).then(
-                function (response) {
-                    console.log(response);
-                    console.log(user);
-                    console.log(angular.equals(response.data,user));
-                    if(angular.equals(response.data,user)){
-                        $rootScope.user = {
-                            username : response.data.username
-                        };
-                        $state.go('layout.home');
-                        console.log($rootScope.user);
-                    }else{
-                        $scope.mess = $state.current.data.loginError;
-                    }
-                },function (response) {
-                    console.log(response);
+                function () {
+                    $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
+                    // console.log(response);
+                    // console.log(user);
+                    // console.log(angular.equals(response.data,user));
+                    // if(angular.equals(response.data,user)){
+                    //     $rootScope.user = {
+                    //         username : response.data.username
+                    //     };
+                    //     $state.go('layout.home');
+                    //     console.log($rootScope.user);
+                    // }else{
+                    //     $scope.mess = $state.current.data.loginError;
+                    // }
+                },function () {
+                    $rootScope.$broadcast(AUTH_EVENTS.loginFailed);
+                    // console.log(response);
                 }
             );
 
-        }
+        };
         // this.test = $state.current.data.user;
         // this.myTxt = "你还没有点击提交!";
         // $scope.myFunc = function () {
