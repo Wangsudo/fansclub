@@ -6,13 +6,16 @@ fansClubApp.factory('authService',[
     function ($http,Session) {
         return {
             login: function login(user) {
+                console.log(user.username);
                 return $http({
                     method: 'post',
                     url: '../data/user.json'
                 }).then(function (response) {
-                    if(response.data.username === user.username && response.data.password === user.password){
+                    console.log(response);
+                    if(response.data.username === user.username && response.data.password === user.password) {
                         user = response.data;
-                        Session.create(response.data.userId,response.data.role);
+                        console.log(user);
+                        Session.create(response.data.userId, response.data.role);
                     }
                 });
             },

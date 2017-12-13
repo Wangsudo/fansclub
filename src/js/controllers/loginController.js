@@ -12,10 +12,11 @@ fansClubApp.controller('loginController',[
             password : ''
         };
         $scope.login = function (user) {
-            console.log(user.role);
+            console.log(user.username);
             authService.login(user).then(
                 function () {
                     $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
+                    console.log(user.username);
                     // console.log(response);
                     // console.log(user);
                     // console.log(angular.equals(response.data,user));
@@ -29,6 +30,7 @@ fansClubApp.controller('loginController',[
                     //     $scope.mess = $state.current.data.loginError;
                     // }
                 },function () {
+                    $scope.mess = $state.current.data.loginError;
                     $rootScope.$broadcast(AUTH_EVENTS.loginFailed);
                     // console.log(response);
                 }
