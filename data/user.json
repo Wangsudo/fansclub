@@ -1,4 +1,6 @@
 {
+  "userId": "001",
   "username" : "admin",
-  "password" : "a123"
+  "password" : "a123",
+  "role" : "one-level-admin"
 }
